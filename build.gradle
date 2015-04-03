@@ -1,6 +1,7 @@
 apply plugin: 'java'
 apply plugin: "eclipse"
 apply plugin: "idea"
+apply plugin: 'findbugs'
 
 version = 'r1'
 
@@ -9,6 +10,6 @@ repositories {
 }
 
 dependencies {
-    compile 'org.reflections.reflections:0.9.9-RC1'
-    compile 'com.googlecode.json-simple:json-simple:1.1'
+    compile group: 'org.reflections', name: 'reflections', version: '0.9.9-RC1'
+    compile group: 'com.googlecode', name: 'json-simple', version: 'json-simple:1.1'
 }
