@@ -18,7 +18,10 @@ import java.util.Set;
  * Controls various aspects of packet sorters.
  */
 public class SorterControler implements Runnable {
-	public SorterControler() {
+	/**
+	 * @param startThread Weather or not to start a new thread automatically for checking connections and opening new ones.
+	 */
+	public SorterControler(boolean startThread) {
 		Reflections reflections = new Reflections(new ConfigurationBuilder()
 				.setUrls(ClasspathHelper.forPackage("com.ame.llamanet", ClasspathHelper.contextClassLoader()))
 				.setScanners(new MethodAnnotationsScanner()));
@@ -28,8 +31,11 @@ public class SorterControler implements Runnable {
 		for (Method method : methods) {
 			sorters.put(method.getName(), method);
 		}
-		connectionCheckThread = new Thread(this, "Connection Check");
-		connectionCheckThread.start();
+
+		if (startThread) {
+			connectionCheckThread = new Thread(this, "Connection Check");
+			connectionCheckThread.start();
+		}
 	}
 
 	/**
