@@ -48,7 +48,7 @@ public class SorterController implements Runnable {
 	 */
 	public static boolean printContentsOfInvalidPackets = false;
 
-	private Thread connectionCheckThread;
+	public Thread connectionCheckThread;
 	private HashSet<Connection> connections = new HashSet<>();
 	private HashMap<String, Method> sorters = new HashMap<>();
 
