@@ -80,8 +80,7 @@ public class SorterController implements Runnable {
 		}
 	}
 
-	@Override
-	public void run() {
+	public void checkOnce() {
 		for (Connection connection : connections) {
 			try {
 				connection.check(this);
@@ -90,5 +89,11 @@ public class SorterController implements Runnable {
 				connections.remove(connection);
 			}
 		}
+	}
+
+	@Override
+	public void run() {
+		while (true)
+			checkOnce();
 	}
 }
