@@ -73,7 +73,7 @@ public class SorterController implements Runnable {
 				sorterMethod.invoke(sorterMethod.getClass(), inner, connection);
 			}
 			catch (ClassCastException | NullPointerException e) {
-				if (printContentsOfInvalidPackets == true)
+				if (printContentsOfInvalidPackets)
 					System.out.println("Malformed packet. Full packet text:\n" + packet);
 			}
 			catch (InvocationTargetException | IllegalAccessException ignored) {}
