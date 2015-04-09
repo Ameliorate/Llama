@@ -25,7 +25,7 @@ public class ConnectionImplementation implements Connection {
 			System.out.println("[Error] The socket is closed while initialising a ConnectionImplementation. Strange... Tell Somebody about this.");
 		}
 
-		if (SorterControler.printConnectAndDisconnectMessages == true)
+		if (SorterController.printConnectAndDisconnectMessages == true)
 			System.out.println("Connection " + toString() + " opened.");
 	}
 
@@ -34,9 +34,9 @@ public class ConnectionImplementation implements Connection {
 	private DataOutputStream connectionOut;
 
 	@Override
-	public void check(SorterControler controler) throws ClosedExeption {
+	public void check(SorterController controler) throws ClosedException {
 		if (connection == null)
-			throw new ClosedExeption();
+			throw new ClosedException();
 
 
 		while(true) {
@@ -48,7 +48,7 @@ public class ConnectionImplementation implements Connection {
 						controler.sort(this, dataJSON);
 					}
 					catch (ClassCastException | ParseException e) {
-						if (SorterControler.printContentsOfInvalidPackets == true)
+						if (SorterController.printContentsOfInvalidPackets == true)
 							System.out.println("Malformed packet. Full packet text:\n" + data);
 					}
 				}
@@ -72,15 +72,15 @@ public class ConnectionImplementation implements Connection {
 		connectionGet = null;
 		connectionOut = null;
 
-		if (SorterControler.printConnectAndDisconnectMessages == true)
+		if (SorterController.printConnectAndDisconnectMessages == true)
 			System.out.println("Connection " + toString() + " closed.");
 
 	}
 
 	@Override
-	public void send(JSONArray data) throws ClosedExeption {
+	public void send(JSONArray data) throws ClosedException {
 		if (connection == null)
-			throw new ClosedExeption();
+			throw new ClosedException();
 		try {
 			connectionOut.writeUTF(data.toString());
 		}

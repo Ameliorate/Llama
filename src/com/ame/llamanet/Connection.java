@@ -9,12 +9,12 @@ public interface Connection {
 	/**
 	 * Checks the connection for new traffic.
 	 */
-	void check(SorterControler controler) throws ClosedExeption;
+	void check(SorterController controler) throws ClosedException;
 
 	/**
 	 * Closes the socket and preforms some cleanup.
 	 */
 	void close();
 
-	void send(JSONArray data) throws ClosedExeption;
+	void send(JSONArray data) throws ClosedException;
 }

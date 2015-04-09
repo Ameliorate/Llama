@@ -17,11 +17,11 @@ import java.util.Set;
  * @author Amelorate
  * Controls various aspects of packet sorters.
  */
-public class SorterControler implements Runnable {
+public class SorterController implements Runnable {
 	/**
 	 * @param startThread Weather or not to start a new thread automatically for checking connections and opening new ones.
 	 */
-	public SorterControler(boolean startThread) {
+	public SorterController(boolean startThread) {
 		Reflections reflections = new Reflections(new ConfigurationBuilder()
 				.setUrls(ClasspathHelper.forPackage("com.ame.llamanet", ClasspathHelper.contextClassLoader()))
 				.setScanners(new MethodAnnotationsScanner()));
@@ -86,7 +86,7 @@ public class SorterControler implements Runnable {
 			try {
 				connection.check(this);
 			}
-			catch (ClosedExeption e) {
+			catch (ClosedException e) {
 				connections.remove(connection);
 			}
 		}
