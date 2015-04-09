@@ -34,7 +34,7 @@ public class ConnectionImplementation implements Connection {
 	private DataOutputStream connectionOut;
 
 	@Override
-	public void check(SorterController controler) throws ClosedException {
+	public void check(SorterController controller) throws ClosedException {
 		if (connection == null)
 			throw new ClosedException();
 
@@ -45,7 +45,7 @@ public class ConnectionImplementation implements Connection {
 					String data = connectionGet.readUTF();
 					try {
 						JSONArray dataJSON = (JSONArray) JSONValue.parseWithException(data);
-						controler.sort(this, dataJSON);
+						controller.sort(this, dataJSON);
 					}
 					catch (ClassCastException | ParseException e) {
 						if (SorterController.printContentsOfInvalidPackets == true)

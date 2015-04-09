@@ -9,7 +9,7 @@ public interface Connection {
 	/**
 	 * Checks the connection for new traffic.
 	 */
-	void check(SorterController controler) throws ClosedException;
+	void check(SorterController controller) throws ClosedException;
 
 	/**
 	 * Closes the socket and preforms some cleanup.
