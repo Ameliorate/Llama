@@ -12,4 +12,5 @@ repositories {
 dependencies {
     compile group: 'org.reflections', name: 'reflections', version: '0.9.9-RC1'
     compile "com.googlecode.json-simple:json-simple:1.1"
+    testCompile 'junit:junit:4.10'
 }
