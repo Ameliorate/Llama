@@ -13,7 +13,7 @@ public class SorterControllerTest {
 
 	@org.junit.Before
 	public void setUp() throws Exception {
-		controller = new SorterController(false);
+		controller = new SorterControllerImplementation(false);
 		controller.registerConnectionToBeChecked(dummyConnection);
 	}
 
@@ -60,5 +60,5 @@ public class SorterControllerTest {
 	}
 
 	private DummyConnection dummyConnection = new DummyConnection();
-	private SorterController controller;
+	private SorterControllerImplementation controller;
 }

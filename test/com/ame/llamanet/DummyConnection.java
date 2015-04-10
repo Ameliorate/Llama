@@ -3,7 +3,6 @@ package com.ame.llamanet;
 import org.json.simple.JSONArray;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 /**
  * @author Amelorate

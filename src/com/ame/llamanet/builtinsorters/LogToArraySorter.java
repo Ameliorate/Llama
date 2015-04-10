@@ -3,7 +3,7 @@ package com.ame.llamanet.builtinsorters;
 import com.ame.llamanet.ClosedException;
 import com.ame.llamanet.Connection;
 import com.ame.llamanet.Sorter;
-import com.ame.llamanet.SorterController;
+import com.ame.llamanet.SorterControllerImplementation;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
@@ -22,7 +22,7 @@ public class LogToArraySorter {
 			message = (String) packet.get("message");
 		}
 		catch (ClassCastException e) {
-			if (SorterController.printContentsOfInvalidPackets)
+			if (SorterControllerImplementation.printContentsOfInvalidPackets)
 				System.out.println("Invalid packet:\n" + packet);
 		}
 		if (message != null)

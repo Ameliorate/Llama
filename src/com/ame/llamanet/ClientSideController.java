@@ -10,7 +10,7 @@ import java.net.UnknownHostException;
  */
 public class ClientSideController {
 	public ClientSideController(String serverIP, int port) throws UnknownHostException {
-		this(serverIP, port, new SorterController(true));
+		this(serverIP, port, new SorterControllerImplementation(true));
 	}
 
 	public ClientSideController(String serverIP, int port, SorterController controller) {

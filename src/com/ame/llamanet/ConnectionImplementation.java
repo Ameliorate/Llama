@@ -25,7 +25,7 @@ public class ConnectionImplementation implements Connection {
 			System.out.println("[Error] The socket is closed while initialising a ConnectionImplementation. Strange... Tell Somebody about this.");
 		}
 
-		if (SorterController.printConnectAndDisconnectMessages)
+		if (SorterControllerImplementation.printConnectAndDisconnectMessages)
 			System.out.println("Connection " + toString() + " opened.");
 	}
 
@@ -48,7 +48,7 @@ public class ConnectionImplementation implements Connection {
 						controller.sort(this, dataJSON);
 					}
 					catch (ClassCastException | ParseException e) {
-						if (SorterController.printContentsOfInvalidPackets)
+						if (SorterControllerImplementation.printContentsOfInvalidPackets)
 							System.out.println("Malformed packet. Full packet text:\n" + data);
 					}
 				}
@@ -72,7 +72,7 @@ public class ConnectionImplementation implements Connection {
 		connectionGet = null;
 		connectionOut = null;
 
-		if (SorterController.printConnectAndDisconnectMessages)
+		if (SorterControllerImplementation.printConnectAndDisconnectMessages)
 			System.out.println("Connection " + toString() + " closed.");
 
 	}
