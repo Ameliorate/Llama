@@ -60,17 +60,11 @@ public class SorterControllerImplementation implements Runnable, SorterControlle
 
 	private HashMap<String, Method> sorters = new HashMap<>();
 
-	/**
-	 * Registers a connection to be checked regularly.
-	 */
 	@Override
 	public void registerConnectionToBeChecked(Connection connection) {	// There is never such a thing as a method whose name is too long with auto completion.
 		connections.add(connection);
 	}
 
-	/**
-	 * Sorts an incoming packet.
-	 */
 	@Override
 	public void sort(Connection connection, JSONArray packet) {
 		for (Object contents : packet) {
