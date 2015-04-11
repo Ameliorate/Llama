@@ -9,8 +9,11 @@ import java.net.UnknownHostException;
  * Allows a single connection to a server to be made.
  */
 public class ClientSideController {
-	public ClientSideController(String serverIP, int port) throws UnknownHostException {
-		this(serverIP, port, new SorterControllerImplementation(true));
+	/**
+	 * @param startThread Weather or not to start a new thread for checking for new traffic.
+	 */
+	public ClientSideController(String serverIP, int port, boolean startThread) throws UnknownHostException {
+		this(serverIP, port, new SorterControllerImplementation(startThread));
 	}
 
 	public ClientSideController(String serverIP, int port, SorterController controller) {
