@@ -11,7 +11,7 @@ import java.util.ArrayList;
 public class DummySorterController implements SorterController {
 	@Override
 	public void registerConnectionToBeChecked(Connection connection) {
-		log.add("checkregister:" + connection);
+		log.add("checkregister");
 	}
 
 	@Override
