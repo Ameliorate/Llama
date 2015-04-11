@@ -36,10 +36,16 @@ public class DummyConnection implements Connection {
 			log.add("send:" + data);
 	}
 
+	/**
+	 * Makes the connection throw a ClosedException on the next check call.
+	 */
 	public void closeOnNextCheck() {
 		closeOnNextCheck = true;
 	}
 
+	/**
+	 * Makes the connection throw a ClosedException on the next send call.
+	 */
 	public void closeOnNextSend() {
 		closeOnNextSend = true;
 	}
