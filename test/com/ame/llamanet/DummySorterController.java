@@ -16,7 +16,7 @@ public class DummySorterController implements SorterController {
 
 	@Override
 	public void sort(Connection connection, JSONArray packet) {
-		log.add("sort:" + connection + "," + connection);
+		log.add("sort:" + packet);
 	}
 
 	@Override
