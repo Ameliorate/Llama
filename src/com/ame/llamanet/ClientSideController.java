@@ -27,7 +27,10 @@ public class ClientSideController {
 		}
 		ConnectionImplementation connection = new ConnectionImplementation(socket);
 		controller.registerConnectionToBeChecked(connection);
+
+		server = connection;
 	}
 
+	public Connection server;
 	public SorterController controller;
 }

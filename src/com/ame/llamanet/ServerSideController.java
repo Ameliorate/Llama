@@ -43,8 +43,11 @@ public class ServerSideController implements Runnable {
 			controller.checkOnce();
 			try {
 				Socket newClientSocket = serverSocket.accept();
-				Connection newClientConnection = new ConnectionImplementation(newClientSocket);
-				controller.registerConnectionToBeChecked(newClientConnection);
+				if (newClientSocket != null) {
+					Connection newClientConnection = new ConnectionImplementation(newClientSocket);
+					controller.registerConnectionToBeChecked(newClientConnection);
+					newClientSocket = null;
+				}
 			}
 			catch (SocketTimeoutException ignored) {}
 			catch (IOException e) {
