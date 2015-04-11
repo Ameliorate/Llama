@@ -36,6 +36,11 @@ public class DummyConnection implements Connection {
 			log.add("send:" + data);
 	}
 
+	@Override
+	public String toString() {
+		return identifier;
+	}
+
 	/**
 	 * Makes the connection throw a ClosedException on the next check call.
 	 */
@@ -53,5 +58,13 @@ public class DummyConnection implements Connection {
 	private boolean closeOnNextSend = false;
 	private boolean closeOnNextCheck = false;
 
+	/**
+	 * What to return when toString is called.
+	 */
+	public String identifier;
+
+	/**
+	 * Logs method calls and their arguments here.
+	 */
 	public ArrayList<String> log = new ArrayList<>();
 }
